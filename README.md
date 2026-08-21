@@ -15,7 +15,7 @@ en une commande et tient sur une seule machine.
 
 > Remplacez `glenden06` par votre organisation GitHub dans les badges ci-dessus.
 
-<!-- Ajoutez ici la capture du dashboard : docs/screenshot.png -->
+![Console SOC-AI](docs/screenshot.png)
 <!-- Ajoutez ici le GIF de demonstration : docs/demo.gif -->
 
 ---
