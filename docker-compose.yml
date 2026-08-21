@@ -1,0 +1,84 @@
+name: soc-ai
+
+x-common: &common
+  restart: unless-stopped
+  environment: &common-env
+    SOCAI_DB: /data/socai.db
+    SOCAI_LOG_LEVEL: ${SOCAI_LOG_LEVEL:-INFO}
+    TZ: ${TZ:-Europe/Paris}
+
+services:
+  parser:
+    <<: *common
+    build:
+      context: .
+      dockerfile: parser/Dockerfile
+    container_name: socai-parser
+    environment:
+      <<: *common-env
+      SOCAI_LOG_DIR: /logs
+      SOCAI_POLL_INTERVAL: ${SOCAI_POLL_INTERVAL:-2}
+    volumes:
+      - socai-data:/data
+      - ./logs:/logs:ro
+
+  engine:
+    <<: *common
+    build:
+      context: .
+      dockerfile: engine/Dockerfile
+    container_name: socai-engine
+    depends_on:
+      - parser
+    volumes:
+      - socai-data:/data
+
+  llm_agent:
+    <<: *common
+    build:
+      context: .
+      dockerfile: llm_agent/Dockerfile
+    container_name: socai-llm-agent
+    depends_on:
+      - engine
+    environment:
+      <<: *common-env
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-sonnet-4-5}
+      OLLAMA_HOST: ${OLLAMA_HOST:-}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-llama3.1}
+      SOCAI_SEND_IP: ${SOCAI_SEND_IP:-true}
+    volumes:
+      - socai-data:/data
+
+  api:
+    <<: *common
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    container_name: socai-api
+    depends_on:
+      - engine
+    ports:
+      - "${SOCAI_API_PORT:-8000}:8000"
+    volumes:
+      - socai-data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  dashboard:
+    <<: *common
+    build:
+      context: .
+      dockerfile: dashboard/Dockerfile
+    container_name: socai-dashboard
+    depends_on:
+      - api
+    ports:
+      - "${SOCAI_WEB_PORT:-3000}:80"
+
+volumes:
+  socai-data:

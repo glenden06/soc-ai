@@ -1,0 +1,32 @@
+# Secrets
+.env
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+dist/
+npm-debug.log*
+
+# Donnees locales
+data/
+logs/*
+!logs/.gitkeep
+*.db
+*.db-wal
+*.db-shm
+
+# Systeme
+.DS_Store
+.idea/
+.vscode/

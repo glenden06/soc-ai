@@ -1,0 +1,21 @@
+title: Connexion SSH depuis une IP hors plage autorisee
+id: SSH-003
+status: experimental
+description: Authentification SSH reussie depuis une adresse hors du reseau interne 192.168.0.0/16 et 10.0.0.0/8.
+author: SOC-AI
+logsource:
+  product: linux
+  service: sshd
+detection:
+  selection:
+    source_type: ssh
+    action: auth_success
+  filter_internal:
+    source_ip|re: '^(192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[01])\.|127\.)'
+  condition: selection and not filter_internal
+falsepositives:
+  - Teletravail via une IP publique non declaree
+level: medium
+tags:
+  - attack.initial_access
+  - attack.t1078

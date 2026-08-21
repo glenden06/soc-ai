@@ -1,0 +1,6 @@
+192.168.1.24 - - [20/Aug/2026:09:05:11 +0200] "GET /index.php HTTP/1.1" 200 5120 "-" "Mozilla/5.0 (X11; Linux x86_64)"
+45.83.64.12 - - [20/Aug/2026:09:17:02 +0200] "GET /produits.php?id=1%20UNION%20SELECT%20username,password%20FROM%20users HTTP/1.1" 500 431 "-" "Mozilla/5.0"
+45.83.64.12 - - [20/Aug/2026:09:17:44 +0200] "GET /download.php?file=../../../../etc/passwd HTTP/1.1" 403 220 "-" "Mozilla/5.0"
+198.51.100.9 - - [20/Aug/2026:09:20:31 +0200] "GET /wp-login.php HTTP/1.1" 404 199 "-" "Mozilla/5.00 (Nikto/2.5.0)"
+198.51.100.9 - - [20/Aug/2026:09:20:33 +0200] "GET /admin/config.bak HTTP/1.1" 404 199 "-" "sqlmap/1.7.11#stable (https://sqlmap.org)"
+192.168.1.31 - - [20/Aug/2026:09:41:19 +0200] "POST /api/commandes HTTP/1.1" 201 88 "-" "python-requests/2.31.0"

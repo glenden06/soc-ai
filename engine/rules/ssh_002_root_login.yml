@@ -1,0 +1,20 @@
+title: Connexion root directe en SSH
+id: SSH-002
+status: experimental
+description: Authentification SSH reussie sur le compte root, contraire aux bonnes pratiques de durcissement.
+author: SOC-AI
+logsource:
+  product: linux
+  service: sshd
+detection:
+  selection:
+    source_type: ssh
+    action: auth_success
+    user: root
+  condition: selection
+falsepositives:
+  - Administration d'urgence documentee
+level: high
+tags:
+  - attack.initial_access
+  - attack.t1078.003

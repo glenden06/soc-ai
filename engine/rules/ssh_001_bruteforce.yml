@@ -1,0 +1,23 @@
+title: Brute Force SSH
+id: SSH-001
+status: experimental
+description: Plus de 5 echecs d'authentification SSH depuis la meme adresse IP en 60 secondes.
+author: SOC-AI
+references:
+  - https://attack.mitre.org/techniques/T1110/001/
+logsource:
+  product: linux
+  service: sshd
+detection:
+  selection:
+    source_type: ssh
+    action: auth_failure
+  timeframe: 60s
+  condition: selection | count() by source_ip > 5
+falsepositives:
+  - Utilisateur legitime ayant oublie son mot de passe
+  - Scripts de sauvegarde avec identifiants expires
+level: high
+tags:
+  - attack.credential_access
+  - attack.t1110.001

@@ -1,0 +1,18 @@
+title: Path traversal detecte
+id: WEB-002
+status: experimental
+description: Sequence de remontee de repertoire dans une requete HTTP, typique d'une tentative de lecture de fichier arbitraire.
+author: SOC-AI
+logsource:
+  category: webserver
+detection:
+  selection:
+    source_type: web
+    path_decoded|re: "(\\.\\./|\\.\\.\\\\|%2e%2e|/etc/passwd|/proc/self/environ|boot\\.ini)"
+  condition: selection
+falsepositives:
+  - Chemins relatifs mal formes generes par une application legitime
+level: medium
+tags:
+  - attack.discovery
+  - attack.t1083

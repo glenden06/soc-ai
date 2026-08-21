@@ -1,0 +1,19 @@
+title: Balayage de ports detecte
+id: NET-001
+status: experimental
+description: Plus de 20 ports distincts contactes par la meme source en 5 secondes.
+author: SOC-AI
+logsource:
+  category: firewall
+detection:
+  selection:
+    action|contains: port_probe
+  timeframe: 5s
+  condition: selection | count() by source_ip > 20
+falsepositives:
+  - Outil de supervision reseau interne
+  - Scan d'inventaire autorise
+level: high
+tags:
+  - attack.reconnaissance
+  - attack.t1046

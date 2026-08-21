@@ -1,0 +1,12 @@
+Aug 20 09:12:01 srv-web01 sshd[2411]: Accepted password for deploy from 192.168.1.24 port 51022 ssh2
+Aug 20 09:14:11 srv-web01 sshd[2455]: Failed password for invalid user admin from 45.83.64.12 port 40122 ssh2
+Aug 20 09:14:13 srv-web01 sshd[2456]: Failed password for invalid user admin from 45.83.64.12 port 40124 ssh2
+Aug 20 09:14:15 srv-web01 sshd[2457]: Failed password for invalid user root from 45.83.64.12 port 40126 ssh2
+Aug 20 09:14:18 srv-web01 sshd[2458]: Failed password for invalid user oracle from 45.83.64.12 port 40128 ssh2
+Aug 20 09:14:21 srv-web01 sshd[2459]: Failed password for invalid user test from 45.83.64.12 port 40130 ssh2
+Aug 20 09:14:24 srv-web01 sshd[2460]: Failed password for invalid user postgres from 45.83.64.12 port 40132 ssh2
+Aug 20 09:14:27 srv-web01 sshd[2461]: Failed password for invalid user backup from 45.83.64.12 port 40134 ssh2
+Aug 20 09:14:31 srv-web01 sshd[2462]: Failed password for invalid user jenkins from 45.83.64.12 port 40136 ssh2
+Aug 20 09:22:47 srv-db02 sshd[3120]: Accepted password for root from 203.0.113.77 port 43122 ssh2
+Aug 20 09:31:05 srv-web01 sshd[3399]: Accepted publickey for deploy from 192.168.1.24 port 51190 ssh2
+Aug 20 09:45:12 srv-app03 sshd[4021]: Failed password for jdupont from 192.168.1.55 port 52233 ssh2

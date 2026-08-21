@@ -1,0 +1,19 @@
+title: Creation d'un compte utilisateur Windows
+id: WIN-002
+status: experimental
+description: Event 4720, un compte utilisateur a ete cree dans le domaine ou en local.
+author: SOC-AI
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    source_type: windows
+    event_id: '4720'
+  condition: selection
+falsepositives:
+  - Provisionnement RH planifie
+level: medium
+tags:
+  - attack.persistence
+  - attack.t1136.001

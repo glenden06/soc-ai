@@ -1,0 +1,25 @@
+title: Acces a la ruche SAM
+id: WIN-003
+status: experimental
+description: Demande de handle sur la base SAM, technique classique de vol d'empreintes de mots de passe.
+author: SOC-AI
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    source_type: windows
+    event_id:
+      - '4656'
+      - '4663'
+    object_name|contains:
+      - '\SAM'
+      - '\SECURITY'
+      - 'SAM\SAM'
+  condition: selection
+falsepositives:
+  - Sauvegarde systeme utilisant VSS
+level: critical
+tags:
+  - attack.credential_access
+  - attack.t1003.002

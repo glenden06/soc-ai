@@ -1,0 +1,28 @@
+title: Scanner HTTP identifie par son User-Agent
+id: WEB-003
+status: experimental
+description: Requete emise par un outil de scan connu identifie via l'en-tete User-Agent.
+author: SOC-AI
+logsource:
+  category: webserver
+detection:
+  selection:
+    source_type: web
+    user_agent|contains:
+      - nikto
+      - sqlmap
+      - nmap
+      - masscan
+      - dirbuster
+      - gobuster
+      - wpscan
+      - acunetix
+      - nessus
+      - zgrab
+  condition: selection
+falsepositives:
+  - Audit de securite planifie
+level: low
+tags:
+  - attack.reconnaissance
+  - attack.t1595

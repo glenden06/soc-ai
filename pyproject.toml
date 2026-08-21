@@ -1,0 +1,19 @@
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+exclude = ["dashboard", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E402"]
+"parser/parser.py" = ["E402"]
+"engine/engine.py" = ["E402"]
+"llm_agent/agent.py" = ["E402"]
+"api/main.py" = ["E402"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "parser", "engine", "llm_agent", "api"]
