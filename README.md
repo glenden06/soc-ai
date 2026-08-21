@@ -2,7 +2,7 @@
 
 **Triage automatise des alertes de securite, par regles Sigma et LLM.**
 
-[![CI](https://github.com/OWNER/soc-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/soc-ai/actions/workflows/ci.yml)
+[![CI](https://github.com/glenden06/soc-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/glenden06/soc-ai/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/)
 [![Docker Compose](https://img.shields.io/badge/docker-compose-2496ED.svg)](https://docs.docker.com/compose/)
@@ -13,7 +13,7 @@ des regles Sigma, puis demande a un LLM de qualifier chaque alerte : criticite,
 technique MITRE ATT&CK, resume et action concrete a mener. Le tout se deploie
 en une commande et tient sur une seule machine.
 
-> Remplacez `OWNER` par votre organisation GitHub dans les badges ci-dessus.
+> Remplacez `glenden06` par votre organisation GitHub dans les badges ci-dessus.
 
 <!-- Ajoutez ici la capture du dashboard : docs/screenshot.png -->
 <!-- Ajoutez ici le GIF de demonstration : docs/demo.gif -->
@@ -23,7 +23,7 @@ en une commande et tient sur une seule machine.
 ## Demarrage rapide
 
 ```bash
-git clone https://github.com/OWNER/soc-ai.git && cd soc-ai
+git clone https://github.com/glenden06/soc-ai.git && cd soc-ai
 cp .env.example .env          # optionnel : ajoutez votre cle ANTHROPIC_API_KEY
 cp samples/* logs/            # jeu de journaux de demonstration
 docker compose up --build -d

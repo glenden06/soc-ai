@@ -7,7 +7,7 @@ corrections de faux positifs constates en production.
 ## Preparer son environnement
 
 ```bash
-git clone https://github.com/OWNER/soc-ai.git && cd soc-ai
+git clone https://github.com/glenden06/soc-ai.git && cd soc-ai
 python -m venv .venv && source .venv/bin/activate
 pip install -r parser/requirements.txt -r engine/requirements.txt \
             -r llm_agent/requirements.txt -r api/requirements.txt
