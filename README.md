@@ -16,8 +16,7 @@ en une commande et tient sur une seule machine.
 > Remplacez `glenden06` par votre organisation GitHub dans les badges ci-dessus.
 
 ![Console SOC-AI](docs/screenshot.png)
-<!-- Ajoutez ici le GIF de demonstration : docs/demo.gif -->
-
+![Démonstration du triage](docs/demo.gif)
 ---
 
 ## Demarrage rapide
